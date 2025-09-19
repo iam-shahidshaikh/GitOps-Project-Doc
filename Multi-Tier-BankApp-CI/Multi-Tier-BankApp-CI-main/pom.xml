@@ -77,15 +77,15 @@
         </plugins>
     </build>
 
-    <distributionManagement>
-        <repository>
-            <id>maven-releases</id>
-            <url>http://65.0.132.48:8081/repository/maven-releases/</url>
-        </repository>
-        <snapshotRepository>
-            <id>maven-snapshots</id>
-            <url>http://65.0.132.48:8081/repository/maven-snapshots/</url>
-        </snapshotRepository>
-    </distributionManagement>
+   <distributionManagement>
+    <snapshotRepository>
+        <id>nexus-snapshots</id>
+        <url>http://65.0.132.48:8081/repository/maven-snapshots/</url>
+    </snapshotRepository>
+    <repository>
+        <id>nexus-releases</id>
+        <url>http://65.0.132.48:8081/repository/maven-releases/</url>
+    </repository>
+</distributionManagement>
 
 </project>
