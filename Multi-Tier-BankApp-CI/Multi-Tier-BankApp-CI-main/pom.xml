@@ -19,14 +19,14 @@
     <description>Banking Web Application</description>
 
     <properties>
-        <!-- If Jenkins has Java 17 installed, keep 17. 
-             If it has only Java 11, change this to 11 -->
+        <!-- Adjust if Jenkins has only Java 11 -->
         <java.version>17</java.version>
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
     </properties>
 
     <dependencies>
+        <!-- Spring Boot Starters (versions managed by parent) -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jpa</artifactId>
@@ -48,14 +48,15 @@
             <artifactId>thymeleaf-extras-springsecurity6</artifactId>
         </dependency>
 
+        <!-- Correct MySQL dependency -->
         <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
+            <groupId>com.mysql</groupId>
+            <artifactId>mysql-connector-j</artifactId>
             <version>8.0.33</version>
             <scope>runtime</scope>
         </dependency>
 
-        <!-- Test dependencies -->
+        <!-- Testing -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
@@ -77,17 +78,16 @@
         </plugins>
     </build>
 
- <distributionManagement>
-  <snapshotRepository>
-    <id>maven-snapshots</id>
-    <url>http://65.0.132.48:8081/repository/maven-snapshots/</url>
-  </snapshotRepository>
-  <repository>
-    <id>maven-releases</id>
-    <url>http://65.0.132.48:8081/repository/maven-releases/</url>
-  </repository>
-</distributionManagement>
-
-
+    <!-- Nexus Distribution Management -->
+    <distributionManagement>
+        <snapshotRepository>
+            <id>maven-snapshots</id>
+            <url>http://65.0.132.48:8081/repository/maven-snapshots/</url>
+        </snapshotRepository>
+        <repository>
+            <id>maven-releases</id>
+            <url>http://65.0.132.48:8081/repository/maven-releases/</url>
+        </repository>
+    </distributionManagement>
 
 </project>
